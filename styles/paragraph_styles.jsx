@@ -36,16 +36,9 @@ function create_paragraph_styles(){
 		pointSize: pageNumSize,
 		leading: baseLeading,
 		noBreak: true,
-		justification: Justification.AWAY_FROM_BINDING_SIDE,
+		justification: Justification.CENTER_ALIGN,
 	});
 
-	if(size == 'large')
-	{
-		myParagraphStyle = myDocument.paragraphStyles.item("Page Num");
-		myParagraphStyle.properties = {
-			justification: Justification.CENTER_ALIGN,
-		};
-	}
 
 	myDocument.paragraphStyles.add({
 		name: "Heading Large",
@@ -150,16 +143,9 @@ function create_paragraph_styles(){
 		fontStyle: "Normal",
 		pointSize: 7,
 		leading: baseLeading,
-		justification: Justification.AWAY_FROM_BINDING_SIDE,
+		justification: Justification.LEFT_ALIGN,
 		hyphenation: false,
 	});
-
-	if(size == "large") {
-		myParagraphStyle = myDocument.paragraphStyles.item("crossReference-frame1");
-		myParagraphStyle.properties = {
-			justification: Justification.LEFT_ALIGN,
-		};
-	}
 
 	myDocument.paragraphStyles.add({
 		name: "init-crossReference-frame1",
@@ -193,9 +179,10 @@ function create_paragraph_styles(){
 		justification: Justification.LEFT_JUSTIFIED,
 		keepLinesTogether: true,
 		keepFirstLines: 1,
-		keepLastLines: 2,
+		keepLastLines: 1,
 		hyphenateLadderLimit: 2,
 		hyphenWeight: 6,
+		//firstLineIndent: "-2mm",
 		tabList: [{
 			position: tabStop[0],
 			alignment: TabStopAlignment.LEFT_ALIGN,
@@ -207,105 +194,6 @@ function create_paragraph_styles(){
 		}, {
 			position: tabStop[2],
 			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}]
-	});
-
-	myDocument.paragraphStyles.add({
-		name: "metricalVerse",
-		appliedFont: baseFont,
-		fontStyle: "Normal",
-		pointSize: baseFontSize,
-		leading: baseLeading,
-		alignToBaseline: true,
-		keepLinesTogether: true,
-		keepFirstLines: 2,
-		keepLastLines: 2,
-		leftIndent: "0",
-		spaceBefore: "5pt",
-		spaceAfter: "5pt",
-		justification: Justification.LEFT_ALIGN,
-		tabList: [{
-			position: "7.761 mm",
-			alignment: TabStopAlignment.RIGHT_ALIGN,
-			leader: ""
-		}, {
-			position: "8.114 mm",
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}, {
-			position: "11.289 mm",
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}, {
-			position: "14.464 mm",
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}]
-	});
-
-	myDocument.paragraphStyles.add({
-		name: "metricalVerseTwoColumn",
-		appliedFont: baseFont,
-		fontStyle: "Normal",
-		pointSize: baseFontSize,
-		leading: baseLeading,
-		hyphenation: false,
-		alignToBaseline: true,
-		keepLinesTogether: true,
-		keepFirstLines: 2,
-		keepLastLines: 2,
-		leftIndent: leftIndentVal,
-		rightIndent: meta.gutter,
-		spaceBefore: "2mm",
-		//spaceAfter: "5pt",
-		justification: Justification.LEFT_ALIGN,
-		tabList: [{
-			position: 96.1,
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}, {
-			position: tabStop[0],
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}, {
-			position: tabStop[1],
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}, {
-			position: tabStop[2],
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}, {
-			position: tabStop[3],
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}, {
-			position: tabStop[4],
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}, {
-			position: tabStop[5],
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}]
-	});
-
-	myDocument.paragraphStyles.add({
-		name: "quoteVerse",
-		basedOn: myDocument.paragraphStyles.item("metricalVerse"),
-		spaceBefore: "0mm",
-		spaceAfter: "0mm",
-		leftIndent: "7.056mm",
-		rightIndent: rightIndentVal,
-		justification: Justification.LEFT_ALIGN,
-		tabList: [{
-			position: "5.644mm",
-			alignment: TabStopAlignment.RIGHT_ALIGN,
-			leader: ""
-		}, {
-			position: "10.231",
-			alignment: TabStopAlignment.RIGHT_ALIGN,
 			leader: ""
 		}]
 	});
@@ -318,108 +206,37 @@ function create_paragraph_styles(){
 		keepFirstLines: 2,
 		leftIndent: leftIndentVal,
 		rightIndent: rightIndentVal,
-		keepLastLines: 2,
+		//keepLastLines: 2,
 		keepWithNext: 0,
 		hyphenation: true,
-		spaceBefore: ".706 mm"
+		spaceBefore: ".706 mm",
+		//dropCapCharacters:2,
+		//dropCapLines:2
 
 	});
 
 	myDocument.paragraphStyles.add({
 		name: "ChapterNum",
-		dropCapCharacters: 2,
+		dropCapCharacters: 3,
 		dropCapLines: 2,
 		alignToBaseline: true,
 		keepLinesTogether: true,
 		keepFirstLines: 1,
-		keepLastLines: 2,
+		//keepLastLines: 2,
 		keepWithNext: 0,
 	});
 
-	myDocument.paragraphStyles.add({
-		name: "mVerse1",
-		appliedFont: baseFont,
-		fontStyle: "Normal",
-		pointSize: baseFontSize,
-		leading: baseLeading,
-		alignToBaseline: true,
-		keepLinesTogether: true,
-		keepFirstLines: 2,
-		keepLastLines: 2,
-		keepWithNext: 0,
-		hyphenation: false,
-		spaceBefore: ".706 mm",
-		leftIndent: leftIndentVal,
-		rightIndent: rightIndentVal,
-		justification: Justification.LEFT_ALIGN,
-		tabList: [{
-			position: 96.1,
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}, {
-			position: tabStop[0],
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}, {
-			position: tabStop[1],
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}, {
-			position: tabStop[2],
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}, {
-			position: tabStop[3],
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}, {
-			position: tabStop[4],
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}, {
-			position: tabStop[5],
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}]
-	})
 
 	myDocument.paragraphStyles.add({
 		name: "Verse2",
 		basedOn: myDocument.paragraphStyles.item("Verse1"),
-		dropCapCharacters: 3
-	});
-
-	myParagraphStyle = myDocument.paragraphStyles.add({
-		name: "mVerse2",
-		basedOn: myDocument.paragraphStyles.item("Verse2"),
-		justification: Justification.LEFT_ALIGN,
-		tabList: [{
-			position: "7.408mm",
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}, {
-			position: "8.114",
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}, {
-			position: "10.583mm",
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}, {
-			position: "15.522mm",
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}, {
-			position: "19.756mm",
-			alignment: TabStopAlignment.LEFT_ALIGN,
-			leader: ""
-		}]
+		//dropCapCharacters: 3
 	});
 
 	myDocument.paragraphStyles.add({
 		name: "Verse3",
 		basedOn: myDocument.paragraphStyles.item("Verse1"),
-		dropCapCharacters: 4
+		//dropCapCharacters: 4
 	});
 
 	myDocument.paragraphStyles.add({

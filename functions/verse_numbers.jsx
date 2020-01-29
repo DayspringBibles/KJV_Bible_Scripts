@@ -20,10 +20,10 @@ function move_verse_numbers_to_frame(me) {
 		// other line number is used, because if the verse # is the first char on line, the line number is for the previous line.
 		// move text to new note
 		me.texts[-1].move(LocationOptions.atBeginning, newNote.insertionPoints[0]);
-		if(me.parentStory.lines[other_line_number-1].characters[-1].contents === " "){
+	/*	if(me.parentStory.lines[other_line_number-1].characters[-1].contents === " "){
 			me.parentStory.lines[other_line_number-1].characters[-1].insertionPoints[-1].contents = SpecialCharacters.FORCED_LINE_BREAK;
 		}
-
+	*/
 	}
 
 	// apply style
